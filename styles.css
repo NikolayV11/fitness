@@ -961,3 +961,7 @@ h6 {
     justify-content: center;
   }
 }
+
+/* input::-webkit-inner-spin-button {
+  display: none;
+} */
