@@ -270,6 +270,60 @@ a:hover {
   text-stroke: 1px var(--color-light-gray);
 }
 
+.title-big {
+  font-weight: 700;
+  font-size: clamp(24px, 3.12vw, 60px);
+  line-height: 1.2;
+}
+
+.input {
+  padding-inline: 25px;
+  width: 100%;
+  height: var(--input-height);
+
+  background-color: transparent;
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius);
+
+  color: var(--color-light);
+  font-weight: 700;
+}
+
+.input::placeholder {
+  color: var(--color-light-gray);
+}
+
+.input:hover {
+  border-color: var(--color-light);
+}
+
+.input:focus {
+  outline: none;
+  background-color: var(--color-light-gray);
+  color: var(--color-dark);
+}
+
+.input:focus::placeholder {
+  color: var(--color-dark-gray);
+}
+
+.backdrop-title.centered::after {
+  top: -0.45em;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.jon-us-form-subtitle {
+  text-transform: uppercase;
+  font-size: clamp(14px, 1.04vw, 20px);
+  line-height: 1.65;
+  color: var(--color-light);
+}
+
+.join-us-form-header:not(:last-child) {
+  margin-bottom: 52px;
+}
+
 h1,
 h2,
 h3,
@@ -313,6 +367,7 @@ h6 {
   padding-right: 81px;
   background-color: transparent;
   border: 1px solid var(--color-light);
+  color: var(--color-light);
 }
 
 .button.transparent::after {
@@ -396,16 +451,19 @@ h6 {
   background-color: transparent;
   color: var(--color-light);
 }
+
 .header-burger-button:hover {
   color: var(--color-light-gray);
   border-color: currentColor;
 }
+
 .header-burger-button-line {
   height: 1px;
   width: 6px;
   background-color: currentColor;
   box-shadow: 16px 0px 0px 0px currentColor;
 }
+
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -590,6 +648,136 @@ h6 {
   text-align: center;
 }
 
+/* третья секция join-us */
+
+.join-us-video {
+  max-width: 100%;
+  width: 980px;
+  height: auto;
+}
+
+.join-us-video-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 150px 30px;
+  background-image: url("./images/join-us-bg.jpg");
+  background-color: var(--color-dark);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.join-us-video-button {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+
+  top: 50%;
+  left: 50%;
+
+  translate: -50% -50%;
+
+  width: clamp(70px, 11.11vw, 200px);
+  aspect-ratio: 1;
+
+  border: var(--border);
+  border-radius: 50%;
+
+  background-color: transparent;
+
+  color: var(--color-light);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.join-us-video-button::after {
+  content: "";
+
+  width: 26px;
+  aspect-ratio: 1;
+
+  background-image: url("./icon/arrow-top-right.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  transition-duration: var(--transition-duration);
+}
+
+.join-us-video-button:hover {
+  background-color: var(--color-light-gray);
+  color: var(--color-dark);
+}
+
+.join-us-video-button:hover::after {
+  filter: invert(1);
+}
+
+.join-us-body {
+  padding-bottom: 150px;
+}
+
+.join-use-title {
+  position: relative;
+  margin-top: -0.4em;
+
+  font-size: clamp(64px, 9.37vw, 180px);
+  line-height: 1;
+  text-align: center;
+}
+
+.join-use-title::after {
+  content: "";
+  display: inline-block;
+
+  height: 0.7em;
+  aspect-ratio: 1;
+
+  margin-left: 0.14em;
+
+  background-image: url(./icon/bold-arrow-down-right.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  /* scale: 1 -1; */
+  transform: rotate(-0.25turn);
+}
+
+.join-use-title:not(:last-child) {
+  margin-bottom: 0.72em;
+}
+
+.join-us-form-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 7px;
+}
+
+.jon-us-form-subtitle {
+  text-align: center;
+}
+
+.join-us-form-input {
+  max-width: 399px;
+}
+
+.join-us-form-body {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 1919px) {
   .motivation-card-image {
     margin-block: -20px;
@@ -625,6 +813,10 @@ h6 {
     max-width: 30%;
     height: auto;
     margin-block: 0;
+  }
+  .join-us-form-body {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -666,9 +858,9 @@ h6 {
 
 @media (max-width: 460px) {
   .training-types-list {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .training-type-item {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
